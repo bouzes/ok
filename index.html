@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            overflow: hidden;
+            cursor: none;
+        }
+    </style>
+</head>
+<body>
+
+<audio id="audio" loop preload="auto">
+    <source src="audio.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    const audio = document.getElementById("audio");
+    let started = false;
+
+    function startAudio() {
+        if (!started) {
+            audio.volume = 1.0;
+            audio.play().catch(() => {});
+            started = true;
+        }
+    }
+
+    document.addEventListener("click", startAudio);
+    document.addEventListener("touchstart", startAudio);
+</script>
+
+</body>
+</html>
